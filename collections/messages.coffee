@@ -21,13 +21,13 @@ self = @
   insert: (userId, doc)->
     true
   update:(userId, docs, fields, modifier)->
-    false
+    true if docs.owner is userId
   remove:  (userId, docs)->
-    false
+    true if docs.owner is userId
 
 if Meteor.isServer
-  Meteor.publish "msgs", (chatId)->
-    self.msgs.find(chatId:chatId)
+  Meteor.publish "msgs", ->
+    self.msgs.find()
 
   Meteor.publish "chats", ->
-    self.chats.find(owner:@userId)
+    self.chats.find()

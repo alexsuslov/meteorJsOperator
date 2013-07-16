@@ -7,6 +7,6 @@ preserve-inputs
 coffeescript
 router
 bootstrap
-accounts-google
 accounts-ui
 showdown
+accounts-password

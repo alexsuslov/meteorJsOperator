@@ -1,2 +1,24 @@
 template(name='main')
-  {{{content}}}
+  .row-fluid
+    .span12
+      {{loginButtons}}
+  .row-fluid
+    .span4
+      {{> chats}}
+    .span8
+      {{> chat}}
+      {{> newMsg}}
+
+template(name='newMsg')
+  textarea#msg
+
+template(name='chats')
+  ul {{#each items}}
+    li
+      a.open(href='#') chat
+  {{/each}}
+
+template(name='chat')
+  ul {{#each items}}
+    li {{text}}
+  {{/each}}
