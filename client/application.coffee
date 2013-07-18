@@ -1,4 +1,5 @@
 @PlaySound = (soundObj)->
+  $("#favicon").attr("href","/img/on.png");
   $('#' + soundObj)[0].play()
 
 Meteor.startup ()->
@@ -8,4 +9,4 @@ Meteor.startup ()->
     </audio>').appendTo('body');   
   $('<audio id="typing">
     <source src="/sound/typing.mp3" type="audio/mpeg">
-    </audio>').appendTo('body');  
+    </audio>').appendTo('body');
