@@ -28,8 +28,10 @@ Template.newMsg.events
         Session.set 'chatId', chatId
       # сообщение
       msg =
+        owner:Meteor.userId()
         text: value
         chatId:chatId
+        time: new Date().getTime()
       # добавляем сообщение в чат
       lastMsg = self.msgs.insert msg
       if lastMsg

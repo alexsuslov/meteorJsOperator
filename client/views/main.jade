@@ -1,21 +1,60 @@
 template(name='main')
   .row-fluid
     .span12
+      h1 Оператор
       {{loginButtons}}
+  {{#if opr}}
   .row-fluid
     .span4
-      {{> chats}}
-    .span8
+      //- in focus
+      h2 Рабочий чат
       {{> chat}}
+      {{> service}}
       {{> newMsg}}
+    .span4
+      //- work
+      h2 В работе
+      {{> chats}}
+    .span4
+      //- Info
+      {{> newChats}}
+      {{> old}}
+  {{/if}}
+
+template(name='newChats')
+  h2 Запросы
+  ul {{#each items}}
+    li(class='{{onLine}}')
+      a.open(href='#')  {{last}}
+  {{/each}}
+
+template(name='old')
+  h2 Старые
+  ul {{#each items}}
+    li(class='{{onLine}}')
+      a.open(href='#')  {{last}}
+  {{/each}}
+
+
+template(name='service')
+  .btn-group
+    button#exs.btn Эскалация
+    button#email.btn В почту
+  br
+
 
 template(name='newMsg')
   textarea#msg
 
 template(name='chats')
+  .btn-group
+    button#hour.btn Час
+    button#day.btn День
+    button#week.btn Неделя
+    button#month.btn Месяц
   ul {{#each items}}
-    li
-      a.open(href='#') chat
+    li(class='{{onLine}}')
+      a.open(href='#') {{last}}
   {{/each}}
 
 template(name='chat')
