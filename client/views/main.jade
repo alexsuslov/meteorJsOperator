@@ -3,13 +3,13 @@ template(name='main')
     .span12
       h1 Оператор
       {{loginButtons}}
-  {{#if opr}}
+  //- {{#if opr}}
   .row-fluid
     .span4
       //- in focus
       h2 Рабочий чат
       {{> chat}}
-      {{> service}}
+      //- {{> service}}
       {{> newMsg}}
     .span4
       //- work
@@ -18,22 +18,31 @@ template(name='main')
     .span4
       //- Info
       {{> newChats}}
-      {{> old}}
-  {{/if}}
+      {{> arhive}}
+  //- {{/if}}
 
 template(name='newChats')
   h2 Запросы
   ul {{#each items}}
     li(class='{{onLine}}')
       a.open(href='#')  {{last}}
+    {{else}}
+    li Список пуст
   {{/each}}
 
-template(name='old')
+template(name='arhive')
   h2 Старые
-  ul {{#each items}}
-    li(class='{{onLine}}')
-      a.open(href='#')  {{last}}
-  {{/each}}
+  .control-group
+    label.control-label Фильтр
+    .controls
+      input.filter.search-query(type='search') {{filter}}
+  .arhive
+    ul {{#each items}}
+      li
+        a.open(href='#') {{text}}
+      {{else}}
+      li Список пуст
+    {{/each}}
 
 
 template(name='service')
@@ -55,9 +64,13 @@ template(name='chats')
   ul {{#each items}}
     li(class='{{onLine}}')
       a.open(href='#') {{last}}
+    {{else}}
+    li Список пуст
   {{/each}}
 
 template(name='chat')
   ul {{#each items}}
     li {{text}}
+  {{else}}
+  li Список пуст
   {{/each}}

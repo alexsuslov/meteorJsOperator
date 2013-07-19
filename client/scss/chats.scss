@@ -1,6 +1,16 @@
+@import 'corner';
+@import 'shadow';
+
 li.online{
   background-color: #eefdd9;
 }
 li.offline{
   background-color: #e8e8e8;
+}
+.arhive{
+  padding: 8px;
+  max-height: 300px;
+  overflow: auto;
+  @include corner(8px);
+  @include shadow(#bfbfbf);
 }

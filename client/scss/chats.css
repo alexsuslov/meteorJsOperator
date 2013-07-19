@@ -3,3 +3,14 @@ li.online {
 
 li.offline {
   background-color: #e8e8e8; }
+
+.arhive {
+  padding: 8px;
+  max-height: 300px;
+  overflow: auto;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -khtml-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  -webkit-box-shadow: 0 0 4px #bfbfbf; }
