@@ -9,4 +9,5 @@ router
 bootstrap
 accounts-ui
 showdown
+accounts-google
 accounts-password
